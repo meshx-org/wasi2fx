@@ -15,7 +15,7 @@ fn get_replacement_module_id(
         return None;
     }
 
-    let searched_function_name = format!("__ic_custom_{}", import_name);
+    let searched_function_name = format!("__fx_custom_{}", import_name);
 
     for fun in module.funcs.iter() {
         if let Some(name) = &fun.name {

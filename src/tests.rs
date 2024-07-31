@@ -120,7 +120,7 @@ fn test_gather_replacement_ids() {
         (func $_initialize (;6;) (type 0)
             i32.const 1
             i32.const 2
-            call $__ic_custom_random_get
+            call $__fx_custom_random_get
             i32.const 1
             i32.const 2
             call $_wasi_unstable_random_get
@@ -130,7 +130,7 @@ fn test_gather_replacement_ids() {
             drop
         )
 
-        (func $__ic_custom_random_get (;8;) (type 3) (param i32 i32) (result i32)
+        (func $__fx_custom_random_get (;8;) (type 3) (param i32 i32) (result i32)
             call $_msg_reply
 
             i32.const 421
@@ -143,7 +143,7 @@ fn test_gather_replacement_ids() {
             i32.const 42
         )
 
-        (export "__ic_custom_fd_write" (func $ic_dummy_fd_write))
+        (export "__fx_custom_fd_write" (func $ic_dummy_fd_write))
         (export "_initialize" (func $_initialize))
     )
     "#;
@@ -231,7 +231,7 @@ fn test_do_module_replacements() {
             call $__imported_wasi_snapshot_preview1_proc_exit
         )
 
-        (func $__ic_custom_random_get (;7;) (type 3) (param i32 i32) (result i32)
+        (func $__fx_custom_random_get (;7;) (type 3) (param i32 i32) (result i32)
             i32.const 0
             ref.func $_wasi_snapshot_preview_random_get
             table.set 0
@@ -240,7 +240,7 @@ fn test_do_module_replacements() {
             i32.const 421
         )
 
-        (func $__ic_custom_fd_write (;8;) (type 5) (param i32 i32 i32 i32) (result i32)
+        (func $__fx_custom_fd_write (;8;) (type 5) (param i32 i32 i32 i32) (result i32)
             i32.const 0
             i32.const 0
             call $_dprint

@@ -1,21 +1,21 @@
 
 
-# wasi2ic
+# wasi2fx
 
 ![Tests](https://github.com/wasm-forge/wasi2ic/actions/workflows/rust.yml/badge.svg?event=push)
-[![Coverage](https://codecov.io/gh/wasm-forge/wasi2ic/graph/badge.svg?token=XE48Z6JSYS)](https://codecov.io/gh/wasm-forge/wasi2ic)
+[![Coverage](https://codecov.io/gh/wasm-forge/wasi2ic/graph/badge.svg?token=XE48Z6JSYS)](https://codecov.io/gh/meshx-org/wasi2fx)
 
-`wasi2ic` is a tool to convert WebAssembly System Interface (WASI) dependent Wasm module to run on the Internet Computer (IC) computer.
+`wasi2fx` is a tool to convert WebAssembly System Interface (WASI) dependent Wasm module to run on the Fiber runtime.
 
 
 ## Compiling wasi2ic
 
-* Clone the https://github.com/wasm-forge/wasi2ic: 
+* Clone the https://github.com/meshx-org/wasi2fx: 
 ```bash
-  git clone https://github.com/wasm-forge/wasi2ic
+  git clone https://github.com/meshx-org/wasi2fx
 ```
 
-* Enter the `wasi2ic` folder
+* Enter the `wasi2fx` folder
 
 * Compile the project with `cargo build` and copy the tool to some executable path or alternatively use `cargo install --path .`, but note that the project is still in the early development.
 
@@ -25,7 +25,7 @@
 To use this tool, navigate to the directory where the WASI-dependent project resides, and run the command:
 
 ```bash
-  wasi2ic <input-wasm-file> <output_wasm_file>
+  wasi2fx <input-wasm-file> <output_wasm_file>
 ```
 
 This will read the old Wasm file and create a new Wasm file with the WASI dependencies removed.
@@ -35,7 +35,7 @@ This will read the old Wasm file and create a new Wasm file with the WASI depend
 The tool requires that the polyfill implementation is present in your Wasm binary, to include the polyfill implementation into your canister project you need to add the dependency:
 
 ```bash
-cargo add --git https://github.com/wasm-forge/ic-wasi-polyfill
+cargo add --git https://github.com/wasm-forge/fx-wasi-polyfill
 ```
 
 This will create the polyfill methods in your `.wasm` file, which are needed for `wasi2ic`.

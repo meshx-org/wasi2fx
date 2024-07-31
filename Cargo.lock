@@ -402,8 +402,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "wasi2ic"
-version = "0.2.13"
+name = "wasi2fx"
+version = "0.0.1"
 dependencies = [
  "anyhow",
  "clap",
@@ -440,9 +440,9 @@ checksum = "449167e2832691a1bff24cde28d2804e90e09586a448c8e76984792c44334a6b"
 
 [[package]]
 name = "wasmparser"
-version = "0.212.0"
+version = "0.214.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8d28bc49ba1e5c5b61ffa7a2eace10820443c4b7d1c0b144109261d14570fdf8"
+checksum = "5309c1090e3e84dad0d382f42064e9933fdaedb87e468cc239f0eabea73ddcb6"
 dependencies = [
  "bitflags",
  "indexmap 2.2.6",
@@ -450,13 +450,13 @@ dependencies = [
 
 [[package]]
 name = "wasmprinter"
-version = "0.212.0"
+version = "0.214.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dfac65326cc561112af88c3028f6dfdb140acff67ede33a8e86be2dc6b8956f7"
+checksum = "58d4f2b3f7bd2ba10f99e03f885ff90d5db3455e163bccecebbbf60406bd8980"
 dependencies = [
  "anyhow",
  "termcolor",
- "wasmparser 0.212.0",
+ "wasmparser 0.214.0",
 ]
 
 [[package]]

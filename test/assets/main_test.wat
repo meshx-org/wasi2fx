@@ -59,7 +59,7 @@
         call $__imported_wasi_snapshot_preview1_proc_exit
     )
 
-    (func $__ic_custom_random_get (;7;) (type 3) (param i32 i32) (result i32)
+    (func $__fx_custom_random_get (;7;) (type 3) (param i32 i32) (result i32)
         i32.const 0
         ref.func $_wasi_snapshot_preview_random_get
         table.set 0
@@ -68,16 +68,12 @@
         i32.const 421
     )
 
-    (func $__ic_custom_fd_write (;8;) (type 5) (param i32 i32 i32 i32) (result i32)
+    (func $__fx_custom_fd_write (;8;) (type 5) (param i32 i32 i32 i32) (result i32)
         i32.const 0
         i32.const 0
         call $_dprint
         i32.const 42
     )
 
-
-
-
     (export "_initialize" (func $_initialize))
-
 )
