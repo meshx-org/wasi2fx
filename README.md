@@ -2,13 +2,13 @@
 
 # wasi2fx
 
-![Tests](https://github.com/wasm-forge/wasi2ic/actions/workflows/rust.yml/badge.svg?event=push)
-[![Coverage](https://codecov.io/gh/wasm-forge/wasi2ic/graph/badge.svg?token=XE48Z6JSYS)](https://codecov.io/gh/meshx-org/wasi2fx)
+![Tests](https://github.com/meshx-org/wasi2fx/actions/workflows/rust.yml/badge.svg?event=push)
+[![Coverage](https://codecov.io/gh/meshx-org/wasi2fx/graph/badge.svg?token=XE48Z6JSYS)](https://codecov.io/gh/meshx-org/wasi2fx)
 
 `wasi2fx` is a tool to convert WebAssembly System Interface (WASI) dependent Wasm module to run on the Fiber runtime.
 
 
-## Compiling wasi2ic
+## Compiling wasi2fx
 
 * Clone the https://github.com/meshx-org/wasi2fx: 
 ```bash
@@ -38,15 +38,15 @@ The tool requires that the polyfill implementation is present in your Wasm binar
 cargo add --git https://github.com/wasm-forge/fx-wasi-polyfill
 ```
 
-This will create the polyfill methods in your `.wasm` file, which are needed for `wasi2ic`.
+This will create the polyfill methods in your `.wasm` file, which are needed for `wasi2fx`.
 
 Also add the call to the init of the polyfill, example:
 
 ```rust
-#[ic_cdk::init]
+#[fx_cdk::init]
 fn init() {
     unsafe {
-        ic_wasi_polyfill::init(&[0u8; 32], &[]);
+        fx_wasi_polyfill::init();
     }
 }
 ```
@@ -64,7 +64,7 @@ The polyfill library is still in early development, and not all methods are impl
 
 | Repository                                      |  Description                  | 
 | --------------------------------------------- | ----------------------------- |
-| [Polyfill library](https://github.com/wasm-forge/ic-wasi-polyfill) | Polyfill library implementing the low-level WASI calls. |
+| [Polyfill library](https://github.com/meshx-org/fx-wasi-polyfill) | Polyfill library implementing the low-level WASI calls. |
 | [stable-fs](https://github.com/wasm-forge/stable-fs) | Simple file system implementation based on the stable structures implementing the backend of the polyfill library. |
 | [demo1](https://github.com/wasm-forge/demo1) | Basic demonstration of creating a "Hello World" application using Rust and running it on the Internet Computer. |
 | [demo2](https://github.com/wasm-forge/demo2) | Basic demonstration of creating a "Hello World" application using C++ and running it on the Internet Computer. |

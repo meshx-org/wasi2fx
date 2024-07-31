@@ -277,7 +277,7 @@ fn test_do_module_replacements() {
 fn test_file_processing() {
     std::fs::create_dir_all("target/test").unwrap();
 
-    let args: arguments::Wasm2icArgs = arguments::Wasm2icArgs {
+    let args: arguments::Wasm2FxArgs = arguments::Wasm2FxArgs {
         quiet: false,
         input_file: "test/assets/main_test.wat".to_string(),
         output_file: "target/test/nowasi.wasm".to_string(),

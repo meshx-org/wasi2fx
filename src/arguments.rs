@@ -2,7 +2,7 @@ use clap::Parser;
 
 #[derive(Parser, Debug)]
 #[command(version, about=format!("Wasi dependency removal V{}", env!("CARGO_PKG_VERSION")), long_about = None)]
-pub struct Wasm2icArgs {
+pub struct Wasm2FxArgs {
     /// Quiet mode
     #[arg(long, short, default_value_t = false)]
     pub quiet: bool,

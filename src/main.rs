@@ -100,7 +100,6 @@ fn gather_replacement_ids(m: &walrus::Module) -> HashMap<FunctionId, FunctionId>
 
 fn replace_calls(m: &mut walrus::Module, fn_replacement_ids: &HashMap<FunctionId, FunctionId>) {
     for elem in m.elements.iter_mut() {
-        
         for member in elem.members.iter_mut() {
             if let Some(func_id) = member {
                 let new_id_opt = fn_replacement_ids.get(func_id);
@@ -250,7 +249,6 @@ fn add_start_entry(module: &mut walrus::Module) {
             module.start = Some(initialize);
         }
     }
-
 }
 
 fn remove_start_export(module: &mut walrus::Module) {
@@ -296,7 +294,7 @@ fn do_module_replacements(module: &mut walrus::Module) {
 }
 
 //fn do_wasm_file_processing(input_wasm: &Path, output_wasm: &Path) -> Result<(), anyhow::Error> {
-fn do_wasm_file_processing(args: &arguments::Wasm2icArgs) -> Result<(), anyhow::Error> {
+fn do_wasm_file_processing(args: &arguments::Wasm2FxArgs) -> Result<(), anyhow::Error> {
     log::info!(
         "Processing input file: '{}', writing output into '{}'",
         args.input_file,
@@ -304,7 +302,12 @@ fn do_wasm_file_processing(args: &arguments::Wasm2icArgs) -> Result<(), anyhow::
     );
 
     if !args.quiet {
-        println!("wasi2ic {}: processing input file: '{}', writing output into '{}'", env!("CARGO_PKG_VERSION"), args.input_file, args.output_file);
+        println!(
+            "wasi2fx {}: processing input file: '{}', writing output into '{}'",
+            env!("CARGO_PKG_VERSION"),
+            args.input_file,
+            args.output_file
+        );
     }
 
     let input_wasm = Path::new(&args.input_file);
@@ -332,7 +335,7 @@ fn do_wasm_file_processing(args: &arguments::Wasm2icArgs) -> Result<(), anyhow::
 
 fn main() -> anyhow::Result<()> {
     env_logger::init();
-    let args = arguments::Wasm2icArgs::parse();
+    let args = arguments::Wasm2FxArgs::parse();
     do_wasm_file_processing(&args)?;
     Ok(())
 }
