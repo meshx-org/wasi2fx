@@ -75,5 +75,9 @@
         i32.const 42
     )
 
+    (func $__fx_custom_proc_exit (;5;) (type 1) (param i32)
+        unreachable
+    )
+
     (export "_initialize" (func $_initialize))
 )
